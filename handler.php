@@ -51,11 +51,6 @@ if (!defined('ABSPATH')) {
             $result['result'] = 'OK';
             $result['message'] = 'Success';
             break;
-        case "dump":
-            $result['data'] = $_SERVER;
-            $result['result'] = 'OK';
-            $result['message'] = 'Success';
-            break;
         default:
             $result['message'] = "Unknown cmd";
             break;
