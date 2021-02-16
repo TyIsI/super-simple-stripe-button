@@ -63,6 +63,7 @@ function s3b_get_stripe_key()
 function s3b_enqueue_scripts()
 {
     wp_enqueue_script('s3b-js', plugin_dir_url(__FILE__).'assets/super-simple-stripe-button.js');
+    wp_localize_script('s3b-js', 'S3B', array( 'siteurl' => get_option('siteurl') ));
     wp_enqueue_script('stripe-js', 'https://js.stripe.com/v3/');
     wp_enqueue_script('jquery');
     wp_enqueue_style('s3b-css', plugin_dir_url(__FILE__).'assets/super-simple-stripe-button.css');

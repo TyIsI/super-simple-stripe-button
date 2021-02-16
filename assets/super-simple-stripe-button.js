@@ -15,27 +15,26 @@ function initJQuery() {
 initJQuery()
 
 const s3b_api_call = async (rpc, params) => {
-  if (params !== undefined || params !== null) {
-    let requestUri =
-      '/wp-content/plugins/super-simple-stripe-button/handler.php/' + rpc
+  let requestUri =
+    S3B.siteurl +
+    '/wp-content/plugins/super-simple-stripe-button/handler.php?cmd=' +
+    rpc
 
-    let requestResult = await fetch(requestUri)
+  let requestResult =
+    params !== undefined || params !== null
+      ? await fetch(requestUri, params)
+      : await fetch(requestUri)
 
-    let requestData = await requestResult.json()
+  let requestData = await requestResult.json()
 
-    return requestData.data
-  }
+  return requestData.data
 }
 
 const s3b_init = async () => {
   console.log('Fetching Stripe key')
-  let keyResult = await fetch(
-    '/wp-content/plugins/super-simple-stripe-button/handler.php/get-stripe-key'
-  )
+  let keyResult = await s3b_api_call('get-stripe-key')
 
-  JSONKeyResult = await keyResult.json()
-
-  window.s3b_stripe = Stripe(JSONKeyResult.data)
+  window.S3B.Stripe = Stripe(keyResult)
 
   s3b_attach_listeners()
 }
@@ -45,13 +44,14 @@ const s3b_button_listener = async function () {
   let quantity = $(this).data('quantity') || 1
   let mode = $(this).data('mode')
 
+  console.log('s3b_create_checkout_session', priceId, mode, quantity)
   let sessionId = await s3b_create_checkout_session(priceId, mode, quantity)
 
-  window.s3b_stripe
-    .redirectToCheckout({
-      sessionId
-    })
-    .then(s3b_handle_result)
+  console.log('s3b_create_checkout_session', 'sessionId', sessionId)
+
+  window.S3B.Stripe.redirectToCheckout({
+    sessionId
+  }).then(s3b_handle_result)
 }
 
 const s3b_attach_listeners = async (stripe) => {
@@ -62,26 +62,19 @@ const s3b_create_checkout_session = async (priceId, mode, quantity) => {
   mode = mode || 'payment'
   quantity = quantity || 1
 
-  let rawResult = await fetch(
-    '/wp-content/plugins/super-simple-stripe-button/handler.php/create-checkout-session',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        priceId,
-        mode,
-        quantity
-      })
-    }
-  )
+  let result = await s3b_api_call('create-checkout-session', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      priceId,
+      mode,
+      quantity
+    })
+  })
 
-  let JSONResult = await rawResult.json()
-
-  JSONResult = JSONResult.data
-
-  return JSONResult.id
+  return result.id
 }
 
 const s3b_handle_result = (result) => {

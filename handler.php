@@ -28,7 +28,7 @@ if (!defined('ABSPATH')) {
         exit;
     }
     
-    $cmd =  substr($_SERVER['PATH_INFO'], 1);
+    $cmd = $_GET['cmd'];
     
     $result = array(
         "result" => "ERROR",
@@ -53,6 +53,7 @@ if (!defined('ABSPATH')) {
             break;
         default:
             $result['message'] = "Unknown cmd";
+            $result['data'] = $cmd;
             break;
     }
                 
