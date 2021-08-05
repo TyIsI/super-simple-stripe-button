@@ -40,9 +40,9 @@ const s3b_init = async () => {
 }
 
 const s3b_button_listener = async function () {
-  let priceId = $(this).data('price-id')
-  let quantity = $(this).data('quantity') || 1
-  let mode = $(this).data('mode')
+  let priceId = jQuery(this).data('price-id')
+  let quantity = jQuery(this).data('quantity') || 1
+  let mode = jQuery(this).data('mode')
 
   console.log('s3b_create_checkout_session', priceId, mode, quantity)
   let sessionId = await s3b_create_checkout_session(priceId, mode, quantity)
@@ -55,7 +55,7 @@ const s3b_button_listener = async function () {
 }
 
 const s3b_attach_listeners = async (stripe) => {
-  $('.s3b-button').on('click', s3b_button_listener)
+  jQuery('.s3b-button').on('click', s3b_button_listener)
 }
 
 const s3b_create_checkout_session = async (priceId, mode, quantity) => {
