@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "@tyisi/super-simple-stripe-button",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "A super simple Stripe button for Wordpress",
     "scripts": {
         "build": "wireit",
