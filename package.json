@@ -1,0 +1,55 @@
+{
+    "private": true,
+    "name": "@tyisi/super-simple-stripe-button",
+    "version": "2.0.0",
+    "description": "A super simple Stripe button for Wordpress",
+    "scripts": {
+        "build": "wireit",
+        "prepare": "wireit"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1",
+    "devDependencies": {
+        "@prettier/plugin-php": "^0.22.2",
+        "@stripe/stripe-js": "^4.1.0",
+        "@tyisi/config-eslint": "^4.0.0",
+        "@tyisi/config-prettier": "^1.0.1",
+        "@types/jquery": "^3.5.30",
+        "esbuild": "0.24.2",
+        "eslint": "^8.57.0",
+        "globals": "^15.14.0",
+        "husky": "^9.1.7",
+        "just-install": "^2.0.2",
+        "prettier": "^3.3.3",
+        "typescript": "^4.9.5",
+        "wireit": "^0.14.9"
+    },
+    "wireit": {
+        "build": {
+            "dependencies": [
+                "build:full",
+                "build:min"
+            ]
+        },
+        "build:full": {
+            "command": "just build full"
+        },
+        "build:min": {
+            "command": "just build min"
+        },
+        "prepare": {
+            "dependencies": [
+                "prepare:husky",
+                "prepare:vendor"
+            ]
+        },
+        "prepare:husky": {
+            "command": "just setup husky"
+        },
+        "prepare:vendor": {
+            "command": "just setup vendor"
+        }
+    }
+}

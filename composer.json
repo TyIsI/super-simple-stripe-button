@@ -1,5 +1,13 @@
 {
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "tyisi/super-simple-stripe-button",
+    "version": "1.0.0",
+    "description": "A super simple Stripe button for Wordpress",
+    "license": "MIT",
     "require": {
         "stripe/stripe-php": "^7.31.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^v3"
     }
 }

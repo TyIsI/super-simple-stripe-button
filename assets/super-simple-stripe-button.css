@@ -1,10 +1,11 @@
 button.s3b-button {
-  color: #fff !important;
-  background: #6772e5 !important;
-  border-radius: 3px;
+    color: white;
+    background: #6772e5;
+    border-radius: 8px;
 }
 
 img.s3b-logo {
-  height: 1.5em;
-  width: auto;
+    height: 1.7em;
+    width: auto;
+    vertical-align: middle;
 }

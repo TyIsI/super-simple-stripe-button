@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "rootDir": "./",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "rootDirs": ["./assets"],
+        "typeRoots": ["./node_modules/@types/", "./types/"],
+        "types": ["jquery"],
+        "allowJs": true,
+        "checkJs": true,
+        "declaration": false,
+        "declarationMap": false,
+        "sourceMap": false,
+        "noEmit": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true
+    },
+    "exclude": ["assets/**"]
+}
