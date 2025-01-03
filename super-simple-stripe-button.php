@@ -13,7 +13,7 @@
  * Plugin Name:       Super Simple Stripe Button
  * Plugin URI:        https://github.com/tyisi/super-simple-stripe-button/
  * Description:       A super simple Stripe button plugin
- * Version:           2.0.2
+ * Version:           2.0.3
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Ty Eggen
