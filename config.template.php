@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('SUPER_SIMPLE_STRIPE_BUTTON')) {
-    echo "SUPER_SIMPLE_STRIPE_BUTTON is not defined";
+    echo 'SUPER_SIMPLE_STRIPE_BUTTON is not defined';
     exit();
 }
 

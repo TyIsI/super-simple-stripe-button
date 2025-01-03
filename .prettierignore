@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+vendor
+composer.lock
+pnpm-lock.yaml
+justfile
+assets/
+.editorconfig
