@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'tyisi/super-simple-stripe-button',
-        'pretty_version' => '1.0.0',
-        'version' => '1.0.0.0',
+        'pretty_version' => '2.0.2',
+        'version' => '2.0.2.0',
         'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
@@ -20,8 +20,8 @@
             'dev_requirement' => false,
         ),
         'tyisi/super-simple-stripe-button' => array(
-            'pretty_version' => '1.0.0',
-            'version' => '1.0.0.0',
+            'pretty_version' => '2.0.2',
+            'version' => '2.0.2.0',
             'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',

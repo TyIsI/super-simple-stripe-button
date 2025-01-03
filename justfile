@@ -23,6 +23,8 @@ format_all:
     #!/usr/bin/env bash
     set -eo pipefail
 
+    echo "Formatting ${FILES:-.}"
+
     node_modules/.bin/prettier -w ${FILES:-.}
 
 format_php:
@@ -90,7 +92,7 @@ setup_commit: install_prod
     if [ "$(git diff --cached --name-only --diff-filter=ACMR | grep vendor)" != "" ]; then
         echo "Found changed vendor files. Updating..."
         echo "Going from $(git diff --cached --name-only --diff-filter=ACMR | wc -l)"
-        git rm --cache -f -r vendor && git add vendor && just install dev
+        pnpm exec just install prod && git rm --cache -f -r vendor && git add vendor
         echo "To: $(git diff --cached --name-only --diff-filter=ACMR | wc -l)"
     fi
 
